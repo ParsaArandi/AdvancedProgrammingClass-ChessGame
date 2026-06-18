@@ -30,7 +30,7 @@ class Board {
         board[0][5] = new Bishop(false);
         board[0][6] = new Knight(false);
         board[0][7] = new Rook(false);
-        
+
         for (int i = 0; i < 8; i++) {
 
             board[1][i] = new Pawn(false);
@@ -104,6 +104,8 @@ class Board {
                  c != toCol;
                  c += step) {
 
+                if (c < 0 || c >= 8) return false;
+
                 if (board[fromRow][c] != null) {
 
                     return false;
@@ -116,6 +118,9 @@ class Board {
             for (int r = fromRow + step;
                  r != toRow;
                  r += step) {
+
+                if (r < 0 || r >= 8) return false;
+
                 if (board[r][fromCol] != null) {
 
                     return false;
@@ -141,6 +146,8 @@ class Board {
         int c = fromCol + colStep;
 
         while (r != toRow && c != toCol) {
+
+            if (r < 0 || r >= 8 || c < 0 || c >= 8) return false;
 
             if (board[r][c] != null) {
 

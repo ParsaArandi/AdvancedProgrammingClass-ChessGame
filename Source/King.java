@@ -45,7 +45,7 @@ class King extends Piece {
             return true;
         }
 
-        if (!hasMoved && rowDiff == 0 && colDiff == 2) {
+        if (!hasMoved && fromCol == 4 && rowDiff == 0 && colDiff == 2) {
 
             if (toCol == 6) {
                 Piece rook = board.getPiece(fromRow, 7);
